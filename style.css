@@ -21,12 +21,23 @@ body {
   margin: auto;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+  padding: 30px;
 }
 
 .card {
@@ -40,8 +51,8 @@ body {
   border-radius: 0 10px 10px 0;
   background: linear-gradient(
       0deg,
-      hsla(277, 100%, 20%, 0.5) 0%,
-      hsla(277, 100%, 20%, 0.5) 100%
+      hsla(277, 100%, 30%, 0.5) 0%,
+      hsla(277, 100%, 30%, 0.5) 100%
     ),
     url(assets/image-header-desktop.jpg) center no-repeat;
 }
@@ -53,6 +64,7 @@ body {
 .apresentation h1 {
   color: var(--white);
   font-size: 32px;
+  animation: fadeIn 5s;
 }
 
 .highlighted {
@@ -65,11 +77,13 @@ body {
   font-size: 16px;
   font-weight: 500;
   margin: 30px 0;
+  animation: fadeIn 5s;
 }
 
 .information {
   display: flex;
   align-items: center;
+  animation: fadeIn 5s ease-in-out;
 }
 
 .information-item {
@@ -90,4 +104,44 @@ body {
 .information-item span {
   color: var(--neutral-700);
   font-size: 16px;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    padding: 30px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-img {
+    display: none;
+  }
+
+  .apresentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .apresentation h1,
+  .apresentation h4 {
+    text-align: center;
+  }
+
+  .information {
+    flex-direction: column;
+  }
+
+  .information-item {
+    align-items: center;
+  }
+
+  .information-item:not(.information-item:first-child) {
+    margin-left: 0;
+    margin-top: 30px;
+  }
 }
